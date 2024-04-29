@@ -1,44 +1,47 @@
-package com.example.group4_icms.entities.Admin;
+package com.example.group4_icms.Functions.DTO;
 
-
-public class SystemAdmin {
-    private String ID = ""; /*Should not be edited*/
-    private String FullName = ""; /*Should not be edited*/
+public class AdminDTO {
+    private String ID;
+    private String FullName;
     private String phone;
     private String address;
     private String email;
     private String password;
 
-    public SystemAdmin(String ID) {
-        this.ID = ID;
-    }
-
-    public String getID() {
-        return this.ID;
+    public AdminDTO() {
     }
 
     public void setID(String ID) {
+
         this.ID = ID;
     }
+    public String getID() {
+        return ID;
+    }
+
 
     public String getFullName() {
         return FullName;
     }
 
-    public void setFullName(String fullName) {
-        FullName = fullName;
-    }
+
+
+//    public entities.InsuranceCard getInsuranceCard() {
+//        return InsuranceCard;
+//    }
+
+
 
     public String getPhone() {
-        return this.phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public static String getAddress() {
-        return this.address;
+    public String getAddress() {
+        return address;
     }
 
     public void setAddress(String address) {
@@ -46,7 +49,7 @@ public class SystemAdmin {
     }
 
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
@@ -54,19 +57,21 @@ public class SystemAdmin {
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public SystemAdmin(String ID, String fullName, String phone, String email, String password, String address) {
+    public AdminDTO(String ID, String fullName, String phone, String address, String email, String password) {
         this.ID = ID;
         this.FullName = fullName;
+//        this.InsuranceCard = insuranceCard;
         this.phone = phone;
+        this.address = address;
         this.email = email;
         this.password = password;
-        this.address = address;
     }
+
 }

@@ -4,13 +4,14 @@ import java.time.LocalDate;
 
 public class ClaimDTO {
 
+
     private String Id;
     private LocalDate ClaimDate;
     private String InsuredPersonId;
-//    private InsuranceCard Card;
     private String CardNum;
     private LocalDate ExamDate;
     private double ClaimAmount;
+    private String ReceiverBankingInfo;
     private Status status;
     private String insuredPersonId;
     private String submittedById;
@@ -19,6 +20,7 @@ public class ClaimDTO {
     public enum Status {
         NEW, PROCESSING, DONE
     }
+    public ClaimDTO(){}
     public ClaimDTO(String id, LocalDate ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
         this.Id = id;
         this.ClaimDate = ClaimDate;

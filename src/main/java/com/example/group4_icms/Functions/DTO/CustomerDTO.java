@@ -6,6 +6,7 @@ import java.util.List;
 public class CustomerDTO {
     private String ID;
     private String FullName;
+    private String
 //    private entities.InsuranceCard InsuranceCard;
     private String phone;
     private String address;

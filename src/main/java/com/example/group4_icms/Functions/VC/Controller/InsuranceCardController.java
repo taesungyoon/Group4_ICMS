@@ -1,8 +1,7 @@
-/*
-package com.example.group4_icms.Functions.VC.Controller;
 
-import Functions.VC.View.InsuranceCardView;
-import entities.InsuranceCard;
+package com.example.group4_icms.Functions.VC.Controller;
+import com.example.group4_icms.Functions.VC.View.InsuranceCardView;
+import com.example.group4_icms.entities.InsuranceCard;
 
 public class InsuranceCardController {
     private InsuranceCard insuranceCard;
@@ -13,4 +12,4 @@ public class InsuranceCardController {
         this.insuranceCardView = insuranceCardView;
     }
 }
-*/
+

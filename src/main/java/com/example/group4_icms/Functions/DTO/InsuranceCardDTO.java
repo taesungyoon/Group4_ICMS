@@ -1,28 +1,22 @@
-
-package com.example.group4_icms.entities;
+package com.example.group4_icms.Functions.DTO;
 
 import com.example.group4_icms.entities.Customer.Customer;
-import com.example.group4_icms.entities.InsuranceCard;
 
 import java.time.LocalDate;
 
-public class InsuranceCard {
+public class InsuranceCardDTO {
     private final String CardNum;
-/*number (10 digits)*/
+    /*number (10 digits)*/
 
     private final Customer cardHolder;
     private LocalDate ExpirationDate = null;
     private final String PolicyOwner;
 
-    public InsuranceCard(String cardNum, Customer cardHolder, LocalDate expirationDate, String policyOwner) {
+    public InsuranceCardDTO(String cardNum, Customer cardHolder, String policyOwner, LocalDate expirationDate) {
         this.CardNum = cardNum;
         this.cardHolder = cardHolder;
-        this.ExpirationDate = expirationDate;
         this.PolicyOwner = policyOwner;
-    }
-
-    public String getCardNum() {
-        return CardNum;
+        this.ExpirationDate = expirationDate;
     }
 
     public Customer getCardHolder() {
@@ -33,6 +27,7 @@ public class InsuranceCard {
         return ExpirationDate;
     }
 
+
     public void setExpirationDate(LocalDate expirationDate) {
         ExpirationDate = expirationDate;
     }
@@ -40,5 +35,8 @@ public class InsuranceCard {
     public String getPolicyOwner() {
         return PolicyOwner;
     }
-}
 
+    public String getCardNum() {
+        return this.CardNum;
+    }
+}

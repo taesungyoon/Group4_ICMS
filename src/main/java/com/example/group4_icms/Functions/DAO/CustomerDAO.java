@@ -1,5 +1,6 @@
 package com.example.group4_icms.Functions.DAO;
 
+import com.example.group4_icms.Functions.DTO.AdminDTO;
 import com.example.group4_icms.Functions.DTO.CustomerDTO;
 
 import java.sql.*;
@@ -75,6 +76,29 @@ public class CustomerDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    public CustomerDTO returnCustomer(String customerID){
+        CustomerDTO customer = null;
+        String sql = "SELECT * FROM customer WHERE c_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, customerID);
+            ResultSet rs = pstmt.executeQuery();
+
+            // 결과 처리
+            if (rs.next()) {
+                customer = new CustomerDTO();
+                customer.setID(rs.getString("a_id"));
+                customer.setPassword(rs.getString("password"));
+                customer.setPhone(rs.getString("phonenumber"));
+                customer.setAddress(rs.getString("address"));
+                customer.setEmail(rs.getString("email"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return customer;
     }
 
 

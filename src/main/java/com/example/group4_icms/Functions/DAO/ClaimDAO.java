@@ -1,8 +1,11 @@
 package com.example.group4_icms.Functions.DAO;
 
+import com.example.group4_icms.Functions.DTO.AdminDTO;
 import com.example.group4_icms.Functions.DTO.ClaimDTO;
+import com.example.group4_icms.entities.Claim;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +13,7 @@ public class ClaimDAO {
 
     Connection conn;
     PreparedStatement pstmt;
+    ClaimDTO claimDTO = new ClaimDTO();
 
     public boolean addClaim(ClaimDTO claim) {
         String sql = "INSERT INTO claim (f_id, examdate, claimamount) VALUES (?, ?, ?)";
@@ -43,36 +47,84 @@ public class ClaimDAO {
         }
     }
 
-//    public List<String> getAllClaims() {
-//        List<String> claims = new ArrayList<>();
-//        String sql = "SELECT * FROM claim";
-//        try (Connection conn = JDBCUtil.connectToDatabase();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery(sql)) {
-//            while (rs.next()) {
-//                String customerData = "ID: " + rs.getString("f_id") + ", ExamDate: " + rs.getString("examdate") + ", claimAmount: " + rs.getString("claimamount");
-//                claims.add(customerData);
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("Error fetching customers: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//        return claims;
-//    }
+    public List<String> getAllClaims() {
+        List<String> claims = new ArrayList<>();
+        String sql = "SELECT * FROM claim";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                String customerData = "ID: " + rs.getString("f_id") + ", ExamDate: " + rs.getString("examdate") + ", claimAmount: " + rs.getString("claimamount");
+                claims.add(customerData);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error fetching customers: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return claims;
+    }
 
-//    public boolean deleteClaim(String claim) {
-//        String sql = "DELETE FROM claim WHERE c_id = ?";
-//        try (Connection conn = JDBCUtil.connectToDatabase();
-//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-//            pstmt.setString(1, claim.getId());
-//
-//            int affectedRows = pstmt.executeUpdate();
-//            return affectedRows > 0;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+    public Claim getOneClaim(String claimID){
+        String sql = "SELECT * FROM claim WHERE f_id = ?";
+        Claim result = null;
+
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, claimID);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                result = new Claim();
+                result.setID(rs.getString("f_id"));
+                result.setExamDate(LocalDate.parse(rs.getString("examdate")));
+                result.setClaimAmount(Integer.parseInt(rs.getString("claimamount")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error fetching claim: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+    public boolean deleteClaim(String claimID) {
+        String sql = "DELETE FROM claim WHERE c_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, claimID);
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ClaimDTO returnClaim(String claimID){
+        ClaimDTO claim = null;
+        String sql = "SELECT * FROM claim WHERE c_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, claimID);
+            ResultSet rs = pstmt.executeQuery();
+
+            // 결과 처리
+            if (rs.next()) {
+                claim = new ClaimDTO();
+                claim.setId(rs.getString("c_id"));
+                claim.setClaimDate(LocalDate.parse(rs.getString("password")));
+                claim.setInsuredPersonId(rs.getString(""));
+                claim.setCardNum(rs.getString("address"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return claim;
+    }
+
+
+
+
 
     public boolean addClaimbyPolicyOwner(ClaimDTO claim, String policyOwnerId) {
         String sql = "INSERT INTO claim (f_id, claimdate, examdate, claimamount, insuredpersonid, submittedbyid, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
