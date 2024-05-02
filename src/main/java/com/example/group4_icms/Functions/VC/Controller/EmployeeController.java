@@ -42,12 +42,12 @@ public class EmployeeController {
             target.getRequestClaims().add(claim);
         }
     }
-    public void requestInfoToCustomer(Customer customer,Claim claim,String message){
-        if(insuranceEmployee instanceof InsuranceSurveyor){
-            customer.getRequestsFromSurveyor().put(claim,message +" by "+insuranceEmployee);
-        }
-
-    }
+//    public void requestInfoToCustomer(Customer customer,Claim claim,String message){
+//        if(insuranceEmployee instanceof InsuranceSurveyor){
+//            customer.getRequestsFromSurveyor().put(claim,message +" by "+insuranceEmployee);
+//        }
+//
+//    }
 
     public void confirmClaim(Claim claim){
         if(insuranceEmployee instanceof  InsuranceManager){

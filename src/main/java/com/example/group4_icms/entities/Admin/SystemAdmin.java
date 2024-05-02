@@ -37,7 +37,7 @@ public class SystemAdmin {
         this.phone = phone;
     }
 
-    public static String getAddress() {
+    public String getAddress() {
         return this.address;
     }
 

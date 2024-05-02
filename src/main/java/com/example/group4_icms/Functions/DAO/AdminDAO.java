@@ -68,7 +68,7 @@ public class AdminDAO {
         String sql = "DELETE FROM systemadmin WHERE a_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, SystemAdmin.getID());
+            pstmt.setString(1, adminDTO.getID());
 
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
