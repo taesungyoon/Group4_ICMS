@@ -1,9 +1,6 @@
 package com.example.group4_icms.Functions.DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBCUtil {
     public static Connection connectToDatabase() {
@@ -27,5 +24,39 @@ public class JDBCUtil {
             e.printStackTrace();
         }
     }
+    // Connection 닫기
+    public static void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                System.err.println("Failed to close connection");
+                e.printStackTrace();
+            }
+        }
+    }
 
+    // PreparedStatement 닫기
+    public static void close(PreparedStatement pstmt) {
+        if (pstmt != null) {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                System.err.println("Failed to close PreparedStatement");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // ResultSet 닫기
+    public static void close(ResultSet rs) {
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                System.err.println("Failed to close ResultSet");
+                e.printStackTrace();
+            }
+        }
+    }
 }
