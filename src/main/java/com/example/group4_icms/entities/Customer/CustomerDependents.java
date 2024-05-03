@@ -1,6 +1,8 @@
-/*
+
 package com.example.group4_icms.entities.Customer;
 
+
+import com.example.group4_icms.entities.InsuranceCard;
 
 public class CustomerDependents extends Customer{
     public CustomerDependents() {}
@@ -15,10 +17,9 @@ public class CustomerDependents extends Customer{
         return PolicyHolder;
     }
 
-    public CustomerDependents(String ID, String fullName, entities.InsuranceCard insuranceCard, String phone, String address, String email, String password, Customer policyHolder) {
+    public CustomerDependents(String ID, String fullName, InsuranceCard insuranceCard, String phone, String address, String email, String password, Customer policyHolder) {
         super(ID, fullName, insuranceCard, phone, address, email, password);
         this.PolicyHolder = policyHolder;
     }
 
 }
-*/

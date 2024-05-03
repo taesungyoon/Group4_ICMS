@@ -1,13 +1,14 @@
-/*
+
 package com.example.group4_icms.entities;
 
-import entities.Customer.Customer;
+import com.example.group4_icms.entities.Customer.Customer;
+import com.example.group4_icms.entities.InsuranceCard;
 
 import java.time.LocalDate;
 
 public class InsuranceCard {
-    private final String CardNum; */
-/*number (10 digits)*//*
+    private final String CardNum;
+/*number (10 digits)*/
 
     private final Customer cardHolder;
     private LocalDate ExpirationDate = null;
@@ -40,4 +41,4 @@ public class InsuranceCard {
         return PolicyOwner;
     }
 }
-*/
+

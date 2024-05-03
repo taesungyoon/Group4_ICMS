@@ -1,7 +1,6 @@
-/*
 package com.example.group4_icms.entities;
 
-import entities.Customer.Customer;
+import com.example.group4_icms.entities.Customer.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,8 +8,8 @@ import java.util.ArrayList;
 public class Claim {
     public Claim() {}
 
-    private String ID; */
-/*(with the format f-numbers; 10 numbers*//*
+    private String ID;
+/*(with the format f-numbers; 10 numbers*/
 
     private LocalDate ClaimDate;
     private Customer InsuredPerson;
@@ -23,9 +22,12 @@ public class Claim {
         New,Processing,Done
     }
     private Status ClaimStatus;
-    private String ReceiverBankingInfo; */
-/*Bank – Name – Number*//*
+    private String ReceiverBankingInfo;
+/*Bank – Name – Number*/
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public String getID() {
         return ID;
@@ -116,4 +118,4 @@ public class Claim {
         ReceiverBankingInfo = receiverBankingInfo;
     }
 }
-*/
+

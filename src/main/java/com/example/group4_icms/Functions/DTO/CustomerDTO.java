@@ -1,5 +1,6 @@
 package com.example.group4_icms.Functions.DTO;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,10 @@ public class CustomerDTO {
     private String email;
     private String password;
     private String type;
-    private String policyHolder;
+    private String policyOwnerName;
     private List<ClaimDTO> claims;
-
+    private LocalDate expirationDate;
+    private LocalDate effectiveDate;
     public CustomerDTO() {
         this.claims = new ArrayList<>();
     }
@@ -27,8 +29,10 @@ public class CustomerDTO {
         this.email = email;
         this.password = password;
         this.type = type;
-        this.policyHolder = policyHolder;
         this.claims = new ArrayList<>();
+        this.policyOwnerName = policyOwnerName;
+        this.expirationDate = expirationDate;
+        this.effectiveDate = effectiveDate;
     }
 
     public void setID(String ID) {
@@ -92,12 +96,12 @@ public class CustomerDTO {
         this.type = type;
     }
 
-    public String getPolicyHolder() {
-        return policyHolder;
+    public void setPolicyOwnerName(String policyOwnerName) {
+        this.policyOwnerName = policyOwnerName;
     }
 
-    public void setPolicyHolder(String policyHolder) {
-        this.policyHolder = policyHolder;
+    public String getPolicyOwnerName() {
+        return policyOwnerName;
     }
 
     public List<ClaimDTO> getClaims() {

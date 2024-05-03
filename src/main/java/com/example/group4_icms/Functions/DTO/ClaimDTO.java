@@ -1,13 +1,14 @@
 package com.example.group4_icms.Functions.DTO;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ClaimDTO {
 
+
     private String Id;
-    private LocalDate ClaimDate;
+    private LocalDateTime ClaimDate;
     private String InsuredPersonId;
-//    private InsuranceCard Card;
     private String CardNum;
     private LocalDate ExamDate;
     private double ClaimAmount;
@@ -19,7 +20,8 @@ public class ClaimDTO {
     public enum Status {
         NEW, PROCESSING, DONE
     }
-    public ClaimDTO(String id, LocalDate ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
+    public ClaimDTO(){}
+    public ClaimDTO(String id, LocalDateTime ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
         this.Id = id;
         this.ClaimDate = ClaimDate;
         this.InsuredPersonId = InsuredPersonId;
@@ -29,6 +31,13 @@ public class ClaimDTO {
         this.status = status;
     }
 
+    public String getSubmittedById() {
+        return submittedById;
+    }
+
+    public void setSubmittedById(String submittedById) {
+        this.submittedById = submittedById;
+    }
     public String getId() {
         return Id;
     }
@@ -69,12 +78,12 @@ public class ClaimDTO {
         InsuredPersonId = insuredPersonId;
     }
 
-    public LocalDate getClaimDate() {
+    public LocalDateTime getClaimDate() {
         return ClaimDate;
     }
 
-    public void setClaimDate(LocalDate claimDate) {
-        ClaimDate = claimDate;
+    public void setClaimDate(LocalDateTime claimDateTime) {
+        ClaimDate = claimDateTime;
     }
     public Status getStatus() {
         return status;
