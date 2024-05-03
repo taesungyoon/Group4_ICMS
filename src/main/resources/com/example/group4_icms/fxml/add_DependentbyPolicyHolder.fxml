@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="center" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.CustomerContorller">
+    <Label text="Enter Policy Holder ID:"/>
+    <TextField fx:id="addCustomerPolicyHolderIdfield"/>
+    <Label text="Enter Dependent ID:"/>
+    <TextField fx:id="addCustomerIdfield"/>
+    <Label text="Enter Dependent Password:"/>
+    <TextField fx:id="addCustomerPwfield"/>
+    <Label text="Enter Dependent Name:"/>
+    <TextField fx:id="addCustomeNamefield"/>
+    <Label text="Enter Dependent Email:"/>
+    <TextField fx:id="addCustomerEmailfield"/>
+    <Label text="Enter Dependent Phone Number:"/>
+    <TextField fx:id="addCustomerPhonefield"/>
+    <Label text="Enter Dependent Address:"/>
+    <TextField fx:id="addCustomerAddressfield"/>
+    <Button text="Submit Claim" onAction="#handleDependentSubmit"/>
+    <Label fx:id="resultLabel"/>
+</VBox>
