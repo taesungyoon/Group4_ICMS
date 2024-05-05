@@ -16,7 +16,7 @@ public class InsuranceSurveyorDAO {
 // 수정해야됨
 
     public boolean addInsuranceSurveyor(InsuranceSurveyorDTO InsuranceSurveyorDTO) {
-        String sql = "INSERT INTO insurancesurveyor (c_id, password, phonenumber, address, email) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO insurancesurveyor (p_id, password, phonenumber, address, email) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, InsuranceSurveyorDTO.getID());
@@ -68,7 +68,7 @@ public class InsuranceSurveyorDAO {
     }
 
     public boolean deleteInsuranceManager(InsuranceSurveyorDTO InsuranceSurveyorDTO) {
-        String sql = "DELETE FROM insurancemanager WHERE c_id = ?";
+        String sql = "DELETE FROM insurancemanager WHERE p_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, InsuranceSurveyorDTO.getID());

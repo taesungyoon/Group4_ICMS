@@ -35,6 +35,7 @@ module com.example.group4_icms {
     requires java.sql;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires org.slf4j;
     opens com.example.group4_icms.Functions to javafx.fxml, javafx.base;
     exports com.example.group4_icms;
     opens com.example.group4_icms to javafx.fxml;

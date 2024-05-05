@@ -5,21 +5,46 @@ import com.example.group4_icms.entities.Customer.Customer;
 import java.time.LocalDate;
 
 public class InsuranceCardDTO {
-    private final String CardNum;
+    private String CardNum;
     /*number (10 digits)*/
 
-    private final Customer cardHolder;
+    private  String cardHolder;
     private LocalDate ExpirationDate = null;
-    private final String PolicyOwner;
+    private  String PolicyOwner;
+    private LocalDate EffectiveDate = null;
+    public void setCardNum(String cardNum) {
+        CardNum = cardNum;
+    }
 
-    public InsuranceCardDTO(String cardNum, Customer cardHolder, String policyOwner, LocalDate expirationDate) {
+    public void setCardHolder(String cardHolder) {
+        this.cardHolder = cardHolder;
+    }
+
+    public void setPolicyOwner(String policyOwner) {
+        PolicyOwner = policyOwner;
+    }
+
+    public InsuranceCardDTO(String cardNum, String cardHolder, String policyOwner, LocalDate expirationDate,LocalDate effectiveDate) {
         this.CardNum = cardNum;
         this.cardHolder = cardHolder;
         this.PolicyOwner = policyOwner;
         this.ExpirationDate = expirationDate;
+        this.EffectiveDate = effectiveDate;
     }
 
-    public Customer getCardHolder() {
+    public LocalDate getEffectiveDate() {
+        return EffectiveDate;
+    }
+
+    public void setEffectiveDate(LocalDate effectiveDate) {
+        EffectiveDate = effectiveDate;
+    }
+
+    public InsuranceCardDTO() {
+
+    }
+
+    public String getCardHolder() {
         return cardHolder;
     }
 

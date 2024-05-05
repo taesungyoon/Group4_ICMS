@@ -17,8 +17,5 @@ public class InsuranceSurveyor extends InsuranceEmployee {
         super(ID, name, password);
     }
 
-    @Override
-    public ArrayList<Claim> getRequestClaims() {
-        return super.getRequestClaims();
-    }
+
 }

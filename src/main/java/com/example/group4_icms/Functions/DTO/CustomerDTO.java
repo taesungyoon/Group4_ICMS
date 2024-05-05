@@ -7,7 +7,6 @@ import java.util.List;
 public class CustomerDTO {
     private String ID;
     private String FullName;
-//    private entities.InsuranceCard InsuranceCard;
     private String phone;
     private String address;
     private String email;
@@ -23,7 +22,6 @@ public class CustomerDTO {
     public CustomerDTO(String ID, String fullName, String phone, String address, String email, String password, String type, String policyHolder) {
         this.ID = ID;
         this.FullName = fullName;
-//        this.InsuranceCard = insuranceCard;
         this.phone = phone;
         this.address = address;
         this.email = email;
@@ -50,9 +48,7 @@ public class CustomerDTO {
 
 
 
-//    public entities.InsuranceCard getInsuranceCard() {
-//        return InsuranceCard;
-//    }
+
 
 
 
@@ -111,5 +107,6 @@ public class CustomerDTO {
     public void setClaims(List<ClaimDTO> claims) {
         this.claims = claims;
     }
+
 
 }

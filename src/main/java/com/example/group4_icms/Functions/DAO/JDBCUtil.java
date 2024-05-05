@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class JDBCUtil {
     public static Connection connectToDatabase() {
+
         String dbUrl = "jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com:5432/postgres";
         String username = "postgres.cuokhartfcylrlxmhutx";
         String password = "fRvT6yOa8tmcejwE";

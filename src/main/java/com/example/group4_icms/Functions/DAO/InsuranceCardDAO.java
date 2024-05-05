@@ -1,9 +1,11 @@
 package com.example.group4_icms.Functions.DAO;
 
 import com.example.group4_icms.Functions.DTO.AdminDTO;
+import com.example.group4_icms.Functions.DTO.CustomerDTO;
 import com.example.group4_icms.entities.Admin.SystemAdmin;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class InsuranceCardDAO {
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, insuranceCardDTO.getCardNum());
-            pstmt.setString(2, insuranceCardDTO.getCardHolder().getFullName());
+            pstmt.setString(2, insuranceCardDTO.getCardHolder());
             pstmt.setString(3, insuranceCardDTO.getExpirationDate().toString());
             pstmt.setString(4, insuranceCardDTO.getPolicyOwner());
 
@@ -72,6 +74,30 @@ public class InsuranceCardDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    public InsuranceCardDTO getInsuranceCardById(String insuranceCardById) {
+        String sql = "SELECT * FROM insurancecard WHERE cardnumber = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, insuranceCardById);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+               InsuranceCardDTO insuranceCardDTO = new InsuranceCardDTO();
+                insuranceCardDTO.setCardNum(rs.getString("cardnumber"));
+                insuranceCardDTO.setCardHolder(rs.getString("cardholder"));
+                insuranceCardDTO.setPolicyOwner(rs.getString("policyowner"));
+                insuranceCardDTO.setExpirationDate(LocalDate.parse(rs.getString("expirationdate")));
+                insuranceCardDTO.setEffectiveDate(LocalDate.parse(rs.getString("effectivedate")));
+
+                // Set additional fields if they are stored in the database
+                return insuranceCardDTO;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching customer by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
     }
 
 

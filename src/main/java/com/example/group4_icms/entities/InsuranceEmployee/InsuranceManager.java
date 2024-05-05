@@ -14,10 +14,7 @@ public class InsuranceManager extends InsuranceEmployee{
         return ConfirmedClaims;
     }
 
-    @Override
-    public ArrayList<Claim> getRequestClaims() {
-        return super.getRequestClaims();
-    }
+
 
     public InsuranceManager(String ID, String name, String password) {
         super(ID, name, password);

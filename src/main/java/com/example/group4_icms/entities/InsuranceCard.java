@@ -13,12 +13,13 @@ public class InsuranceCard {
     private final Customer cardHolder;
     private LocalDate ExpirationDate = null;
     private final String PolicyOwner;
-
-    public InsuranceCard(String cardNum, Customer cardHolder, LocalDate expirationDate, String policyOwner) {
+    private LocalDate EffectiveDate = null;
+    public InsuranceCard(String cardNum, Customer cardHolder, LocalDate expirationDate, String policyOwner,LocalDate effectiveDate) {
         this.CardNum = cardNum;
         this.cardHolder = cardHolder;
         this.ExpirationDate = expirationDate;
         this.PolicyOwner = policyOwner;
+        this.EffectiveDate = effectiveDate;
     }
 
     public String getCardNum() {

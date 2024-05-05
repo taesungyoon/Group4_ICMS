@@ -13,14 +13,15 @@ public class AdminDAO {
     Connection conn;
     PreparedStatement  pstmt;
     public boolean addAdmin(AdminDTO adminDTO) {
-        String sql = "INSERT INTO customer (a_id, password, phonenumber, address, email) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO systemadmin (a_id, password,fullname,  email, phonenumber,address) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, adminDTO.getID());
             pstmt.setString(2, adminDTO.getPassword());
-            pstmt.setString(3, adminDTO.getPhone());
-            pstmt.setString(4, adminDTO.getAddress());
-            pstmt.setString(5, adminDTO.getEmail());
+            pstmt.setString(3, adminDTO.getFullName());
+            pstmt.setString(4, adminDTO.getEmail());
+            pstmt.setString(5, adminDTO.getPhone());
+            pstmt.setString(6, adminDTO.getAddress());
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
@@ -30,14 +31,14 @@ public class AdminDAO {
     }
 
     public boolean updateCustomer(AdminDTO adminDTO) {
-        String sql = "UPDATE systemadmin SET password = ?, phonenumber = ?, address = ?, email = ? WHERE c_id = ?";
+        String sql = "UPDATE systemadmin SET password = ?, fullname = ?, phonenumber = ?, address = ?, email = ? WHERE a_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, adminDTO.getPassword());
-            pstmt.setString(2, adminDTO.getPhone());
-            pstmt.setString(3, adminDTO.getAddress());
+            pstmt.setString(2, adminDTO.getPassword());
+            pstmt.setString(3, adminDTO.getFullName());
             pstmt.setString(4, adminDTO.getEmail());
-            pstmt.setString(5, adminDTO.getID());
+            pstmt.setString(5, adminDTO.getPhone());
+            pstmt.setString(6, adminDTO.getAddress());
 
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;

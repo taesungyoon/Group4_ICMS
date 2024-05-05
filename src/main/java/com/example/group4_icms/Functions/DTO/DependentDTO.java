@@ -4,7 +4,6 @@ public class DependentDTO {
 
     private String ID;
     private String FullName;
-    //    private entities.InsuranceCard InsuranceCard;
     private String phone;
     private String address;
     private String email;

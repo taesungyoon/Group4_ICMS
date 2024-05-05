@@ -67,7 +67,7 @@ public class InsuranceManagerDAO {
     }
 
     public boolean deleteInsuranceManager(InsuranceManagerDTO InsuranceManagerDTO) {
-        String sql = "DELETE FROM insurancemanager WHERE c_id = ?";
+        String sql = "DELETE FROM insurancemanager WHERE p_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, InsuranceManagerDTO.getID());

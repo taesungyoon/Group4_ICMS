@@ -18,30 +18,30 @@ public class EmployeeController {
         this.insuranceEmployee = insuranceEmployee;
         this.employeeView = employeeView;
     }
-    public void addRequestClaimFromCustomer(Claim claim){
-        if(insuranceEmployee instanceof InsuranceSurveyor){
-            ArrayList<Claim> Claims = insuranceEmployee.getRequestClaims();
-            Claims.add(claim);
-        }
-    }
-    public void sendRequectClaimToManager(Claim claim,InsuranceEmployee insuranceEmployee){
-        if(insuranceEmployee instanceof InsuranceSurveyor){
-            insuranceEmployee.getRequestClaims().add(claim);
-        }
-    }
-    public void sendRequestClaimToCustomer(Claim claim, Customer customer, String message){
-        if(insuranceEmployee instanceof InsuranceSurveyor){
-            ArrayList<Claim> Claims = insuranceEmployee.getRequestClaims();
-            Customer target = claim.getInsuredPerson();
-            Claims.add(claim);
-        }
-    }
-
-    public void sendRequectClaimToSurveyor(Claim claim, InsuranceEmployee target){
-        if(insuranceEmployee instanceof InsuranceManager){
-            target.getRequestClaims().add(claim);
-        }
-    }
+//    public void addRequestClaimFromCustomer(Claim claim){
+//        if(insuranceEmployee instanceof InsuranceSurveyor){
+//            ArrayList<Claim> Claims = insuranceEmployee.getRequestClaims();
+//            Claims.add(claim);
+//        }
+//    }
+//    public void sendRequectClaimToManager(Claim claim,InsuranceEmployee insuranceEmployee){
+//        if(insuranceEmployee instanceof InsuranceSurveyor){
+//            insuranceEmployee.getRequestClaims().add(claim);
+//        }
+//    }
+//    public void sendRequestClaimToCustomer(Claim claim, Customer customer, String message){
+//        if(insuranceEmployee instanceof InsuranceSurveyor){
+//            ArrayList<Claim> Claims = insuranceEmployee.getRequestClaims();
+//            Customer target = claim.getInsuredPerson();
+//            Claims.add(claim);
+//        }
+//    }
+//
+//    public void sendRequectClaimToSurveyor(Claim claim, InsuranceEmployee target){
+//        if(insuranceEmployee instanceof InsuranceManager){
+//            target.getRequestClaims().add(claim);
+//        }
+//    }
 //    public void requestInfoToCustomer(Customer customer,Claim claim,String message){
 //        if(insuranceEmployee instanceof InsuranceSurveyor){
 //            customer.getRequestsFromSurveyor().put(claim,message +" by "+insuranceEmployee);

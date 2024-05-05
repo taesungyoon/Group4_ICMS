@@ -5,10 +5,6 @@ import com.example.group4_icms.entities.Claim;
 import java.util.ArrayList;
 
 public class InsuranceEmployee {
-    private ArrayList<Claim> RequestedClaims = new ArrayList<>();
-    public ArrayList<Claim> getRequestClaims() {
-        return RequestedClaims;
-    }
     public InsuranceEmployee(){}
     private String ID;
     private String Name;

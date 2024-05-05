@@ -199,6 +199,8 @@ public class ClaimDAO {
         }
         return claims;
     }
+
+
     public ClaimDTO findClaimById(String claimId) {
         String sql = "SELECT * FROM claim WHERE f_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();

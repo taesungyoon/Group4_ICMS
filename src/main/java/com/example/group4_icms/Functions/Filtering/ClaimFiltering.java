@@ -23,7 +23,7 @@ public class ClaimFiltering {
         }
         return result;
     }
-    public ArrayList<ClaimDTO> filterClaimDateTimeOlder(LocalDate time) {
+    public ArrayList<ClaimDTO> filterClaimDateTimeOlder(LocalDateTime time) {
         ArrayList<ClaimDTO> result = new ArrayList<>();
         for (ClaimDTO claim : Claims) {
             if (claim.getClaimDate().isAfter(time)) {

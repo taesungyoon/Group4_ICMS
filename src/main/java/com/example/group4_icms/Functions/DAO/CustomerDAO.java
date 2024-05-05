@@ -1,6 +1,7 @@
 package com.example.group4_icms.Functions.DAO;
 
 import com.example.group4_icms.Functions.DTO.AdminDTO;
+import com.example.group4_icms.Functions.DTO.ClaimDTO;
 import com.example.group4_icms.Functions.DTO.CustomerDTO;
 
 import java.sql.*;
@@ -57,11 +58,16 @@ public boolean addCustomer(CustomerDTO customer) {
             pstmt.setString(5, customer.getID());
 
             int affectedRows = pstmt.executeUpdate();
+
             return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+    }
+    public void updateCustomerClaim(CustomerDTO customer, ClaimDTO claim) {
+
+
     }
 
     public List<String> getAllCustomers() {
@@ -70,7 +76,8 @@ public boolean addCustomer(CustomerDTO customer) {
         try (Connection conn = JDBCUtil.connectToDatabase();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
+            while (rs.next())
+            {
                 String customerData = "ID: " + rs.getString("c_id") + ", password: " + rs.getString("password") + ", phoneNumber: " + rs.getString("phonenumber") + ", address: " + rs.getString("address") + ", email: " + rs.getString("email");
                 customers.add(customerData);
             }
@@ -179,6 +186,16 @@ public boolean addCustomer(CustomerDTO customer) {
         customer.setAddress(rs.getString("address"));
         customer.setPhone(rs.getString("phonenumber"));
         return customer;
+    }
+
+    public static void main(String[] args) {
+
+        CustomerDAO c1 = new CustomerDAO();
+                long startTime = System.nanoTime();
+System.out.println(c1.getAllCustomers());
+        long endTime = System.nanoTime();
+        System.out.println("Database connection time: " + (endTime - startTime) + " nanoseconds");
+
     }
 
 
